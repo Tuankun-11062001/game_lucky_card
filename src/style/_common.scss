@@ -1,0 +1,492 @@
+.card{
+    width: calc(20% - 4rem);
+    margin: 2rem;
+    height: 35rem;
+    background: white;
+    border-radius: 1rem;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    cursor: pointer;
+
+    &.flip{
+        transform: rotateY(180deg);
+    }
+
+    &_front{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background: lightblue;
+        color:#222;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0.1rem 0.2rem 1rem rgba(255,255,255,0.4);
+        border:1rem solid #fff;
+        pointer-events: none;
+        &_bg{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h2{
+            position: absolute;
+            left:50%;
+            transform:translateX(-50%);
+            font-size: 3rem;
+            margin-top: 3rem;
+            color:#fff;
+        }
+
+        &_cat{
+            position: absolute;
+            left: 50%;
+            top:50%;
+            transform: translate(-50%, -50%);
+            width: 20rem;
+            height: 20rem;
+            object-fit: cover;
+        }
+    }
+
+    &_back{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background: #fff;
+        color:#222;
+        transform: rotateY(180deg);
+        border:1rem solid #f7df1e;
+        border-radius: 1rem;
+        box-shadow: 0.2rem 0.1rem 1rem rgba(255,255,255,0.6);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:2rem;
+        &_img{
+            width: 10rem;
+            height: 10rem;
+            object-fit: cover;
+        }
+        p{
+            font-size: 2rem;
+            color: #555;
+        }
+        h2{
+            font-size: 4rem;
+            color:#e9c903;
+        }
+    }
+}
+
+// ==== repon ===
+
+@media (max-width:1026px){
+    .card{
+        width: calc(33.33% - 4rem)
+    }
+}
+
+@media (max-width:770px){
+    .card{
+        width: calc(33.33% - 2rem);
+        margin:1rem;
+        height: 30rem;
+        &_front_cat{
+            width: 10rem;
+            height: 10rem;
+        }   
+        &_back{
+            &_img{
+
+                width: 7rem;
+                height: 7rem;
+            }
+            h2{
+                font-size: 2.3rem;
+            }
+        }   
+    }
+}
+
+@media (max-width:540px){
+    .card{
+        width: calc(50% - 2rem);
+        margin:1rem;
+        
+        height: 25rem;
+        &_front_cat{
+            width: 10rem;
+            height: 10rem;
+            margin-top:2rem;
+        }   
+    }
+}
+
+@media (max-width:400px){
+    .card{
+        width: 100%;
+        margin:1rem;
+        height: 25rem;
+        &_front_cat{
+            width: 10rem;
+            height: 10rem;
+        }   
+    }
+}
+
+.infoCard{
+    background: #fff;
+    width: calc(25% - 4rem);
+    margin:2rem;
+    padding:2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    position: relative;
+    box-shadow: 0.1rem 0.2rem 1rem rgba(255,255,255,0.6);
+    height: max-content;
+    h2{
+        text-align: center;
+        font-size: 2rem;
+    }
+    &_group{
+        p{
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            &:first-child{
+                color:gray
+            }
+            &:last-child{
+                font-size: 1.8rem;
+            }
+        }
+
+    }
+
+    &_controls{
+        position: absolute;
+        bottom: -2rem;
+        right:2rem;
+        display: flex;
+        gap:2rem;
+        
+        button{
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            border:0.1rem solid gray;
+            background: #fff;
+            box-shadow: 0.1rem 0.2rem 1rem rgba(255,255,255,0.6);
+            transition: 0.3s ease;
+            cursor: pointer;
+            svg{
+                width: 2rem;
+                height: 2rem;
+                color:gray;
+            }
+            &:hover{
+                &:first-child{
+                    background: #47a358;
+                    svg{
+                        color:#fff
+                    }
+                }
+                &:last-child{
+                    background: #e83d45;
+                    svg{
+                        color:#fff
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width:540px){
+    .infoCard{
+        width: calc(50% - 2rem);
+        padding-bottom: 4rem;
+        margin: 1rem;
+        margin-bottom: 2.5rem;
+        &_front_cat{
+            width: 10rem;
+            height: 10rem;
+        }   
+    }
+}
+
+@media (max-width:350px){
+    .infoCard{
+        width: 100%;
+        height: 25rem;
+        margin: 1rem;
+        margin-bottom: 2.5rem;
+        &_front_cat{
+            width: 10rem;
+            height: 10rem;
+        }   
+    }
+}
+
+.create{
+    position: fixed;
+    left:0;
+    right: 0;
+    bottom: 0;
+    top:0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    &_context{
+        background: #fff;   
+        width: 40rem;
+        padding:2rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap:2rem;
+        box-shadow: 0.1rem 0.2rem 1rem rgba(255,255,255,0.6);
+
+        
+
+        &_head{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 0.1rem solid #f7f7f7;
+            padding-bottom: 1rem;
+
+            h2{
+                font-size: 2rem;
+                color:#222;
+            }
+
+            button{
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                border:0.1rem solid gray;
+                background: transparent;
+                display: flex;
+                transition:0.3s ease;
+                cursor: pointer;
+
+                svg{
+                    align-self: center;
+                    width: 3rem;
+                    height: 3rem;
+                    color:gray;
+                }
+
+                &:hover{
+                    background: #e83d45;
+                    svg{color: #fff;}
+                }
+            }
+        }
+
+        &_form{
+            display: flex;
+            flex-direction: column;
+            gap:2rem;
+
+            &_group{
+                p{
+                    font-size: 1.6rem;
+                    padding-bottom: 1rem;
+                }
+
+                input{
+                    width: 100%;
+                    padding:1rem;
+                    border-radius: 1rem;
+                    border:0.1rem solid gray;
+                    outline-color: #47a358;
+                    font-size: 1.7rem;
+                }
+            }
+
+            button{
+                padding:1rem;
+                border-radius:1rem;
+                border:0.1rem solid gray;
+                background: transparent;
+                font-size: 1.6rem;
+                transition: 0.3s ease;
+                cursor: pointer;
+                &:hover{
+                    background: #47a358;
+                    color:#fff;
+                }
+            }
+        }
+    }
+    
+
+}
+
+.edit{
+    position: fixed;
+    left:0;
+    right: 0;
+    bottom: 0;
+    top:0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+
+    &_context{
+        background: #fff;   
+        width: 40rem;
+        padding:2rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap:2rem;
+        box-shadow: 0.1rem 0.2rem 1rem rgba(255,255,255,0.6);
+
+        
+
+        &_head{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 0.1rem solid #f7f7f7;
+            padding-bottom: 1rem;
+
+            h2{
+                font-size: 2rem;
+                color:#222;
+            }
+
+            button{
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                border:0.1rem solid gray;
+                background: transparent;
+                display: flex;
+                transition:0.3s ease;
+                cursor: pointer;
+
+                svg{
+                    align-self: center;
+                    width: 3rem;
+                    height: 3rem;
+                    color:gray;
+                }
+
+                &:hover{
+                    background: #e83d45;
+                    svg{color: #fff;}
+                }
+            }
+        }
+
+        &_form{
+            display: flex;
+            flex-direction: column;
+            gap:2rem;
+
+            &_group{
+                p{
+                    font-size: 1.6rem;
+                    padding-bottom: 1rem;
+                }
+
+                input{
+                    width: 100%;
+                    padding:1rem;
+                    border-radius: 1rem;
+                    border:0.1rem solid gray;
+                    outline-color: #47a358;
+                    font-size: 1.7rem;
+                }
+            }
+
+            button{
+                padding:1rem;
+                border-radius:1rem;
+                border:0.1rem solid gray;
+                background: transparent;
+                font-size: 1.6rem;
+                transition: 0.3s ease;
+                cursor: pointer;
+                &:hover{
+                    background: #47a358;
+                    color:#fff;
+                }
+            }
+        }
+    }
+    
+
+}
+
+.delete{
+    position: fixed;
+    left:0;
+    right: 0;
+    bottom: 0;
+    top:0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+
+    &_context{
+        background: #fff;   
+        width: 40rem;
+        padding:2rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap:2rem;
+        box-shadow: 0.1rem 0.2rem 1rem rgba(255,255,255,0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p{
+            font-size: 1.7rem;
+        }
+
+        div{
+            display: flex;
+            gap:2rem;
+            button{
+                padding:1rem 3rem;
+                border-radius: 1rem;
+                border:0.1rem solid gray;
+                background: transparent;
+                cursor: pointer;
+                transition: 0.3s ease;
+                &:hover{
+                    &:first-child{
+                        background: #e83d45;
+                        color:#fff
+                    }
+                    &:last-child{
+                        background: #47a358;
+                        color:#fff
+                    }
+                }
+            }
+        }
+    }
+}
