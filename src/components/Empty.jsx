@@ -42,7 +42,7 @@ export default function Empty() {
         exit="hide"
       >
         <motion.div className="empty_context" variants={child}>
-          <h3>Message</h3>
+          <h3>Thông báo</h3>
           <p>Hiện tại bạn chưa có mệnh giá nào.</p>
           <button onClick={goSetup}>Điền mệnh giá</button>
         </motion.div>

@@ -53,7 +53,7 @@ export default function Setup() {
               <AiFillHome />
               <p>Trở về</p>
             </button>
-            <h1>Setup</h1>
+            <h1>Thiết lập Thẻ</h1>
             <div className="setup_note">
               <button onClick={handleCreate}>Tạo mới</button>
             </div>
